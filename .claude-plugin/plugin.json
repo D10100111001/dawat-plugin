@@ -1,0 +1,13 @@
+{
+  "name": "dawat",
+  "version": "1.0.0",
+  "description": "Create beautiful digital invitations by talking — elegant envelope-reveal cards and fun party pages, with guest lists, personalized links, RSVPs and reminders. Powered by dawat.events.",
+  "author": {
+    "name": "Dawat",
+    "url": "https://dawat.events"
+  },
+  "homepage": "https://dawat.events",
+  "repository": "https://github.com/D10100111001/dawat-plugin",
+  "license": "MIT",
+  "keywords": ["invitations", "events", "rsvp", "wedding", "nikkah", "party", "guests"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "dawat",
+  "owner": {
+    "name": "Dawat",
+    "url": "https://dawat.events"
+  },
+  "metadata": {
+    "description": "Dawat — beautiful digital invitations, guest lists and RSVPs, driven entirely by conversation.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dawat",
+      "source": "./",
+      "description": "Create elegant envelope-reveal invitation cards or fun party pages, manage guest lists with personalized links, send invitations and reminders, and track RSVPs — all by talking to Claude. Connects to dawat.events (sign-in via OAuth on first use).",
+      "author": { "name": "Dawat", "url": "https://dawat.events" },
+      "homepage": "https://dawat.events",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["invitations", "events", "rsvp", "wedding", "party"]
+    }
+  ]
+}

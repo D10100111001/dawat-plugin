@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dawat": {
+      "type": "http",
+      "url": "https://dawat.events/mcp"
+    }
+  }
+}
