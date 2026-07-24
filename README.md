@@ -1,9 +1,21 @@
 # Dawat — invitations by conversation
 
+![Dawat — invitations worth opening](assets/dawat-social-1280x640.png)
+
 Create beautiful digital invitations without leaving Claude: elegant
 envelope-reveal **cards** for weddings and nikkahs, vibrant **party pages** for
 everything casual — plus guest lists with personalized links, email sending,
 reminders, and live RSVP tracking. Powered by [dawat.events](https://dawat.events).
+
+## See it work
+
+One sentence in, a live invitation out — envelope, wax seal and all:
+
+![Creating a real invitation by talking to Claude](assets/demo.gif)
+
+*Real run: "Create an elegant nikkah invitation for Omar & Khadija on September 12
+at The Courtyard, Houston. Publish it and give me the link." →
+[dawat.events/i/rB96HeUW](https://dawat.events/i/rB96HeUW)*
 
 ## Install (Claude Code)
 
