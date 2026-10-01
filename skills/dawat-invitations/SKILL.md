@@ -14,9 +14,9 @@ manage, or published link. Use only tools exposed by the connected account.
 - Use `list_templates` or `list_page_themes` to choose an available core design.
   Choose `card` for a formal keepsake or `page` for a casual gathering. Compose
   warm, concise invitation wording from the user's information.
-- Signature experiences may require paid access. Check
-  `list_signature_experiences` before selecting one; never silently upgrade or
-  imply that paid access exists.
+- For a requested Signature design, check `list_signature_experiences` for an
+  existing entitlement. Explain unavailable access without offering an upgrade,
+  checkout, or purchase link. Use Standard core for unspecified requests.
 - `create_invitation` saves a draft. Use `update_invitation` for edits. When the
   request is to review a draft, return its edit link and leave it unpublished.
 - Publish only with explicit user intent. If the user already requested

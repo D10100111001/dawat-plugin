@@ -25,7 +25,7 @@
         "shortDescription": "Create invitations and RSVPs",
         "longDescription": "Create a digital wedding invitation, birthday invitation, or party page from a conversation. Save and edit invitation drafts, add a guest list, publish a shareable invitation when requested, and check RSVPs through your connected Dawat account. Dawat provides persistent invitation designs and personalized guest links. Publishing and guest messaging require explicit user intent. Availability of delivery channels and URL import depends on the connected service.",
         "developerName": "SASID SERVICES INC",
-        "category": "Productivity",
+        "category": "Creativity",
         "capabilities": [
           "Create invitation drafts",
           "Manage invitation guest lists",
@@ -101,7 +101,7 @@
         "demo_recording_url": "https://dawat.events/uploads/media/plugin-reviews/dawat-1.1.1-f6658c751d11.mp4"
       },
       "publication": {
-        "release_notes": "Version 1.1.1 aligns the verified publisher and listing description, adds accessible public legal pages and a dedicated expiring reviewer login, and supplies a public video walkthrough covering five positive and three negative ChatGPT test cases. Existing OAuth and tenant-scoped invitation tools are retained."
+        "release_notes": "Version 1.1.1 aligns the verified publisher and creative invitation category, adds accessible public legal pages, an expiring sample reviewer login, and an eight-case ChatGPT video walkthrough. The MCP catalog omits prices and purchase-entry links; unspecified requests create Standard core drafts, while explicit design choices retain existing entitlement checks."
       }
     }
   }
