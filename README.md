@@ -53,8 +53,10 @@ remains available through its existing installation instructions.
 
 Build the public upload ZIP from an explicit allowlist: `plugin.json`, `mcp.json`,
 `skills/dawat-invitations/SKILL.md`, and `assets/dawat-logo-300.png`. Include no
-credentials, local files, or Git metadata. Review scenarios are proposed cases;
-they must be executed with a dedicated sample account before submission.
+credentials, local files, or Git metadata. The five positive and three negative
+cases were executed through ChatGPT with a dedicated sample account on October
+1, 2026. The manifest links the public review walkthrough. Private reviewer
+credentials belong in the portal's review fields, outside this package.
 
 Public directory publication is separate from packaging. The OpenAI dashboard
 requires a verified developer identity, domain challenge, tool scan, review

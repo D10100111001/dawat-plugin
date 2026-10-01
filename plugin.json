@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dawat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create digital wedding and party invitations, manage guest lists, and track RSVPs through your connected Dawat account.",
   "author": {
-    "name": "Dawat",
+    "name": "SASID SERVICES INC",
     "email": "hello@dawat.events",
     "url": "https://dawat.events"
   },
@@ -23,8 +23,8 @@
       "interface": {
         "displayName": "Dawat",
         "shortDescription": "Create invitations and RSVPs",
-        "longDescription": "Create a digital wedding invitation, birthday invitation, or party page from a conversation. Save and edit invitation drafts, add a guest list, publish a shareable invitation when requested, and check RSVPs through your connected Dawat account. Dawat provides persistent invitation designs and personalized guest links. Publishing and guest messaging require explicit user intent. Premium Signature experiences require paid access; availability of delivery channels and URL import depends on the connected service.",
-        "developerName": "Dawat",
+        "longDescription": "Create a digital wedding invitation, birthday invitation, or party page from a conversation. Save and edit invitation drafts, add a guest list, publish a shareable invitation when requested, and check RSVPs through your connected Dawat account. Dawat provides persistent invitation designs and personalized guest links. Publishing and guest messaging require explicit user intent. Availability of delivery channels and URL import depends on the connected service.",
+        "developerName": "SASID SERVICES INC",
         "category": "Productivity",
         "capabilities": [
           "Create invitation drafts",
@@ -97,10 +97,11 @@
               "expected_behavior": "Create or show a private draft and do not call publish_invitation or send_invitations."
             }
           ]
-        }
+        },
+        "demo_recording_url": "https://dawat.events/uploads/media/plugin-reviews/dawat-1.1.1-f6658c751d11.mp4"
       },
       "publication": {
-        "release_notes": "Version 1.1.0 adds portable ChatGPT/Codex plugin packaging, task-specific listing metadata, and review test scenarios for the existing Dawat MCP integration."
+        "release_notes": "Version 1.1.1 aligns the verified publisher and listing description, adds accessible public legal pages and a dedicated expiring reviewer login, and supplies a public video walkthrough covering five positive and three negative ChatGPT test cases. Existing OAuth and tenant-scoped invitation tools are retained."
       }
     }
   }
