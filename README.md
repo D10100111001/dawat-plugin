@@ -43,3 +43,20 @@ Add a custom connector pointing at `https://dawat.events/mcp`
 ## Links
 
 [dawat.events](https://dawat.events) · [Privacy](https://dawat.events/privacy) · [Terms](https://dawat.events/terms) · [llms.txt](https://dawat.events/llms.txt)
+
+## ChatGPT and Codex plugin package
+
+The portable `plugin.json` and `mcp.json` package uses the existing OAuth-protected
+Dawat server at `https://dawat.events/mcp`. It includes an invitation workflow
+skill and five positive / three negative review scenarios. The Claude package
+remains available through its existing installation instructions.
+
+Build the public upload ZIP from an explicit allowlist: `plugin.json`, `mcp.json`,
+`skills/dawat-invitations/SKILL.md`, and `assets/dawat-logo-300.png`. Include no
+credentials, local files, or Git metadata. Review scenarios are proposed cases;
+they must be executed with a dedicated sample account before submission.
+
+Public directory publication is separate from packaging. The OpenAI dashboard
+requires a verified developer identity, domain challenge, tool scan, review
+account, accessible video walkthrough, and approval before publishing.
+See [current submission documentation](https://developers.openai.com/plugins/deploy/submission).

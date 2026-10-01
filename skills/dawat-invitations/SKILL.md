@@ -1,52 +1,44 @@
 ---
 name: dawat-invitations
-description: Use when the user wants to create, send, or manage event invitations, guest lists, or RSVPs — weddings, nikkahs, birthdays, dinners, parties, Eid/iftar gatherings. Drives the Dawat MCP tools end-to-end so the user only has to talk.
+description: Create or manage digital event invitations, invitation drafts, guest lists, and RSVPs with Dawat when the user asks for a wedding, nikkah, birthday, dinner, or party invitation. Use the connected Dawat MCP tools for persistent invitations and guest state.
 ---
 
-# Creating invitations with Dawat
+# Dawat invitations
 
-Dawat turns a conversation into a finished, shareable invitation. Your job: gather
-the essentials naturally, make tasteful choices for everything else, and hand back
-a link. The user should never need to open an editor unless they want to.
+Turn the requested occasion into a saved invitation and return the relevant edit,
+manage, or published link. Use only tools exposed by the connected account.
 
-## The flow
+- Establish title, host, date/time with timezone, and venue from the conversation.
+  Request only details that materially affect the invitation; do not invent dates,
+  locations, recipients, or contact data.
+- Use `list_templates` or `list_page_themes` to choose an available core design.
+  Choose `card` for a formal keepsake or `page` for a casual gathering. Compose
+  warm, concise invitation wording from the user's information.
+- Signature experiences may require paid access. Check
+  `list_signature_experiences` before selecting one; never silently upgrade or
+  imply that paid access exists.
+- `create_invitation` saves a draft. Use `update_invitation` for edits. When the
+  request is to review a draft, return its edit link and leave it unpublished.
+- Publish only with explicit user intent. If the user already requested
+  publication of the stated invitation, use that authorization without asking
+  again. Otherwise show the saved details before seeking publication approval.
+- Add only the guest list provided or specifically selected by the user. A guest
+  without delivery contact information can still receive a personal share link.
+  Do not invent an email address, scrape contacts, or add unrequested recipients.
+- `send_invitations` contacts real people. Establish the invitation, exact audience,
+  channel, message purpose, and explicit sending authorization first. Reuse clear
+  authorization already given for that audience; do not expand it to reminders,
+  additional recipients, or other channels. Report actual results and skipped
+  guests, rather than claiming delivery from a successful request alone.
+- URL import is optional service functionality. If extraction is unavailable,
+  build a draft from user-provided details without claiming the page was imported.
+- Use `list_my_invitations`, `get_invitation`, and the RSVP tools to read connected
+  account state. Summarize counts and next actions; reveal guest contact details
+  only when necessary for the user's requested task.
+- Deleting invitations or guests can remove associated data permanently. Explain
+  the exact effect and require specific deletion authorization before invoking
+  the destructive tool. Publishing, deleting, and sending are separate intents.
 
-1. **Understand the occasion.** You need: what's being celebrated, who's hosting,
-   when (date, time, timezone), and where. Ask only for what's missing — one
-   short question at a time, never a form-like list.
-2. **Pick the format from the occasion's tone** (`create_invitation` with `format`):
-   - `card` — formal keepsake with an envelope-reveal animation: weddings, nikkahs,
-     walimahs, engagements, milestone anniversaries/birthdays, baby celebrations.
-   - `page` — vibrant one-page party invite: casual birthdays, dinners, game
-     nights, BBQs, casual iftars. Pick a fitting `pageTheme` (sunset, garden,
-     midnight, butter, blush, neon) and `coverEmoji`.
-3. **Compose the wording yourself.** Always write a warm 1–3 sentence `message`
-   in the host's voice; add an `eyebrow` (e.g. "TOGETHER WITH THEIR FAMILIES")
-   and `footer` (e.g. "Dinner to follow") when the occasion suits it. For select
-   design control, call `list_templates` first and pass `templateSlug`/`variantId`.
-4. **Migrating?** If the user has an invitation on another platform (Paperless
-   Post, Evite, Zola, a wedding site), use `import_invitation_from_url` — it
-   rebuilds everything including the color mood.
-5. **Guests.** Offer to add the guest list (`add_guests`). Each guest gets a
-   personal link that addresses them by name and prefills their RSVP — share
-   these for WhatsApp/text. Ask for names + emails/phones conversationally or
-   from a pasted list.
-6. **Review, then publish.** Show the user what you created (title, when, where,
-   design) and confirm before `publish_invitation`. Publishing returns the
-   shareable link — always present it prominently.
-7. **Sending.** `send_invitations` emails real people — always confirm the
-   audience ("send to all 12 guests?") before calling it. Guests without email
-   are skipped; give the host their personal links instead. Reminders: same tool
-   with `kind: "reminder"`, typically to non-responders.
-8. **Afterwards.** `get_invitation` shows RSVP totals and the per-guest funnel
-   (sent → opened → responded). Summarize insights, don't dump JSON.
-
-## Tone
-
-Celebrations are emotional. Be warm and a little celebratory, keep questions
-light, and treat every invitation like it matters — because to the host, it does.
-
-## Account
-
-First use requires connecting to dawat.events (OAuth). Hosts can always refine
-in the visual editor at the `editLink`, and manage guests at the `manageLink`.
+First use requires connecting a Dawat account through OAuth. Tool results are
+account-scoped. Links to the editor and guest manager support further refinement.
+Do not request tokens in chat or put credentials in URLs.

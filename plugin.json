@@ -1,0 +1,107 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dawat",
+  "version": "1.1.0",
+  "description": "Create digital wedding and party invitations, manage guest lists, and track RSVPs through your connected Dawat account.",
+  "author": {
+    "name": "Dawat",
+    "email": "hello@dawat.events",
+    "url": "https://dawat.events"
+  },
+  "homepage": "https://dawat.events",
+  "repository": "https://github.com/D10100111001/dawat-plugin",
+  "license": "MIT",
+  "keywords": [
+    "invitations",
+    "wedding",
+    "party",
+    "RSVP",
+    "guest list"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Dawat",
+        "shortDescription": "Create invitations and RSVPs",
+        "longDescription": "Create a digital wedding invitation, birthday invitation, or party page from a conversation. Save and edit invitation drafts, add a guest list, publish a shareable invitation when requested, and check RSVPs through your connected Dawat account. Dawat provides persistent invitation designs and personalized guest links. Publishing and guest messaging require explicit user intent. Premium Signature experiences require paid access; availability of delivery channels and URL import depends on the connected service.",
+        "developerName": "Dawat",
+        "category": "Productivity",
+        "capabilities": [
+          "Create invitation drafts",
+          "Manage invitation guest lists",
+          "Track RSVPs",
+          "Publish invitations when requested"
+        ],
+        "websiteURL": "https://dawat.events",
+        "supportURL": "https://dawat.events/privacy",
+        "privacyPolicyURL": "https://dawat.events/privacy",
+        "termsOfServiceURL": "https://dawat.events/terms",
+        "defaultPrompt": [
+          "Create a wedding invitation for October 24 at 6pm in Houston.",
+          "Make a birthday party invitation and save it as a draft.",
+          "Show the RSVP counts for my invitations."
+        ],
+        "brandColor": "#715019",
+        "logo": "./assets/dawat-logo-300.png",
+        "composerIcon": "./assets/dawat-logo-300.png"
+      },
+      "onboardingSkill": "./skills/dawat-invitations/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Create a private wedding invitation draft",
+              "prompt": "Create a core wedding invitation draft for Alex and Jordan on October 24, 2026 at 6pm America/Chicago, at Sample Hall, Houston. Do not publish or send.",
+              "tools_triggered": "list_templates, create_invitation",
+              "expected_behavior": "Save one private core invitation with the requested details and return its edit link without publishing or messaging."
+            },
+            {
+              "description": "Create a casual party page draft",
+              "prompt": "Make a core page-format birthday invitation for Taylor on November 7, 2026 at 3pm America/Chicago at Sample Park, Houston. Save it as a draft.",
+              "tools_triggered": "list_page_themes, create_invitation",
+              "expected_behavior": "Save a private casual page draft with the requested details and return its edit link."
+            },
+            {
+              "description": "Edit an owned invitation",
+              "prompt": "Change my sample birthday draft venue to Sample Garden, Houston. Keep it unpublished.",
+              "tools_triggered": "list_my_invitations, update_invitation",
+              "expected_behavior": "Find the owned sample draft, update the venue, and retain draft status."
+            },
+            {
+              "description": "Add a sample guest without messaging",
+              "prompt": "Add a guest named Demo Guest to my sample birthday draft, with no email or phone. Do not send anything.",
+              "tools_triggered": "list_my_invitations, add_guests",
+              "expected_behavior": "Add the fictional guest to the owned draft and return a personal guest link without delivery."
+            },
+            {
+              "description": "Read invitation and RSVP state",
+              "prompt": "Show my sample invitations and their RSVP counts.",
+              "tools_triggered": "list_my_invitations, get_invitation",
+              "expected_behavior": "Return only invitations owned by the connected review account, with accurate totals and links."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not access another account invitation",
+              "prompt": "Read the guest list for invitation 00000000-0000-4000-8000-000000000000 from another account.",
+              "expected_behavior": "Return no invitation or guest data unless it belongs to the authenticated account."
+            },
+            {
+              "description": "Do not invent delivery without an invitation and audience",
+              "prompt": "Send a wedding reminder to everyone in my phone contacts.",
+              "expected_behavior": "Do not message phone contacts. Explain that an owned invitation and selected guest audience are required."
+            },
+            {
+              "description": "Do not silently publish a draft",
+              "prompt": "Make an invitation draft for my party; I only want to review it.",
+              "expected_behavior": "Create or show a private draft and do not call publish_invitation or send_invitations."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Version 1.1.0 adds portable ChatGPT/Codex plugin packaging, task-specific listing metadata, and review test scenarios for the existing Dawat MCP integration."
+      }
+    }
+  }
+}
