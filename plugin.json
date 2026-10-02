@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dawat",
-  "version": "1.1.1",
-  "description": "Create digital wedding and party invitations, manage guest lists, and track RSVPs through your connected Dawat account.",
+  "version": "1.2.0",
+  "description": "Design digital invitations, review guest messaging, manage RSVP policies and coordinate wedding celebrations through your connected Dawat account.",
   "author": {
     "name": "SASID SERVICES INC",
     "email": "hello@dawat.events",
@@ -23,23 +23,26 @@
       "interface": {
         "displayName": "Dawat",
         "shortDescription": "Create invitations and RSVPs",
-        "longDescription": "Create a digital wedding invitation, birthday invitation, or party page from a conversation. Save and edit invitation drafts, add a guest list, publish a shareable invitation when requested, and check RSVPs through your connected Dawat account. Dawat provides persistent invitation designs and personalized guest links. Publishing and guest messaging require explicit user intent. Availability of delivery channels and URL import depends on the connected service.",
+        "longDescription": "Create and inspect a digital wedding, birthday or party invitation in a native invitation studio. Review invitation copy, RSVP policies, guest lists and analytics; publish when requested; generate sharing artwork and QR links; and preview the audience, channels, copy and skipped guests before sending. Discover invitations shared with you under their existing roles. Inspect a supported imported invitation before saving it. Coordinate a wedding celebration with events, households, travel/FAQ/registry modules and household responses. Every write reuses Dawat account access and explicit confirmation. Delivery and import depend on the connected service. Digital upgrades and unavailable image-remix services are outside this plugin.",
         "developerName": "SASID SERVICES INC",
         "category": "Creativity",
         "capabilities": [
-          "Create invitation drafts",
-          "Manage invitation guest lists",
-          "Track RSVPs",
-          "Publish invitations when requested"
+          "Create and edit invitations with RSVP policy controls",
+          "Inspect invitation previews in an interactive studio",
+          "Discover invitations shared with you under existing roles",
+          "Review guest audience and copy before explicit messaging",
+          "Generate share links, QR codes and social artwork",
+          "Manage celebration events, households and website modules",
+          "Track RSVPs, household responses and event analytics"
         ],
         "websiteURL": "https://dawat.events",
         "supportURL": "https://dawat.events/support",
         "privacyPolicyURL": "https://dawat.events/privacy",
         "termsOfServiceURL": "https://dawat.events/terms",
         "defaultPrompt": [
-          "Create a wedding invitation for October 24 at 6pm in Houston.",
-          "Make a birthday party invitation and save it as a draft.",
-          "Show the RSVP counts for my invitations."
+          "Create a wedding invitation for October 24 at 6pm in Houston and show the preview.",
+          "Review my invitation RSVP deadline and guest list before sending anything.",
+          "Help me plan a wedding celebration with multiple events and household invitations."
         ],
         "brandColor": "#715019",
         "logo": "./assets/dawat-logo-300.png",
@@ -51,9 +54,9 @@
           "positive": [
             {
               "description": "Create a private wedding invitation draft",
-              "prompt": "Create a core wedding invitation draft for Alex and Jordan on October 24, 2026 at 6pm America/Chicago, at Sample Hall, Houston. Do not publish or send.",
-              "tools_triggered": "list_templates, create_invitation",
-              "expected_behavior": "Save one private core invitation with the requested details and return its edit link without publishing or messaging."
+              "prompt": "Create a core wedding invitation draft for Alex and Jordan on October 24, 2026 at 6pm America/Chicago, at Sample Hall, Houston. Do not publish or send. Show the draft preview.",
+              "tools_triggered": "list_templates, create_invitation, render_invitation_preview",
+              "expected_behavior": "Save one private core invitation with the requested details and return its edit link without publishing or messaging. Render its private invitation studio preview without publishing."
             },
             {
               "description": "Create a casual party page draft",
@@ -62,22 +65,22 @@
               "expected_behavior": "Save a private casual page draft with the requested details and return its edit link."
             },
             {
-              "description": "Edit an owned invitation",
-              "prompt": "Change my sample birthday draft venue to Sample Garden, Houston. Keep it unpublished.",
-              "tools_triggered": "list_my_invitations, update_invitation",
-              "expected_behavior": "Find the owned sample draft, update the venue, and retain draft status."
+              "description": "Review and update RSVP policy on a draft",
+              "prompt": "Show my sample birthday draft and RSVP deadline, change allow-maybe to false, and keep it unpublished.",
+              "tools_triggered": "list_my_invitations, get_invitation, update_rsvp_policy, render_invitation_preview",
+              "expected_behavior": "Read the current invitation and policy, apply the requested allow-maybe change under its role, preserve other policy fields and draft status, then show the preview."
             },
             {
               "description": "Add a sample guest without messaging",
-              "prompt": "Add a guest named Demo Guest to my sample birthday draft, with no email or phone. Do not send anything.",
-              "tools_triggered": "list_my_invitations, add_guests",
-              "expected_behavior": "Add the fictional guest to the owned draft and return a personal guest link without delivery."
+              "prompt": "Add a guest named Demo Guest to my sample birthday draft, with no email or phone. Do not send anything. Preview the email audience and tell me which guests would be skipped.",
+              "tools_triggered": "list_my_invitations, add_guests, preview_invitations",
+              "expected_behavior": "Add the fictional guest to the owned draft and return a personal guest link without delivery. Show the proposed audience, copy and missing-contact skip without sending."
             },
             {
-              "description": "Read invitation and RSVP state",
-              "prompt": "Show my sample invitations and their RSVP counts.",
-              "tools_triggered": "list_my_invitations, get_invitation",
-              "expected_behavior": "Return only invitations owned by the connected review account, with accurate totals and links."
+              "description": "Read invitation and celebration state",
+              "prompt": "Show my sample invitations and their RSVP counts, plus the celebrations shared with me. Do not change anything.",
+              "tools_triggered": "list_my_invitations, get_invitation, list_celebrations",
+              "expected_behavior": "Return only owned or role-authorized shared invitations/celebrations, accurate totals and existing links. No writes or messaging."
             }
           ],
           "negative": [
@@ -101,7 +104,7 @@
         "demo_recording_url": "https://dawat.events/uploads/media/plugin-reviews/dawat-1.1.1-f6658c751d11.mp4"
       },
       "publication": {
-        "release_notes": "Version 1.1.1 aligns the verified publisher and creative invitation category, adds accessible public legal pages, an expiring sample reviewer login, and an eight-case ChatGPT video walkthrough. The MCP catalog omits prices and purchase-entry links; unspecified requests create Standard core drafts, while explicit design choices retain existing entitlement checks."
+        "release_notes": "Version 1.2.0 adds a versioned native MCP Apps invitation studio and fourteen focused tools for preview, RSVP controls, sharing kits, audience review, import inspection and celebration coordination. All writes retain existing scopes, authorization and explicit confirmation. The existing video documents the original review flows; native ChatGPT UI acceptance and the expanded walkthrough are tracked separately."
       }
     }
   }
