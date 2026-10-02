@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dawat",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Design digital invitations, review guest messaging, manage RSVP policies and coordinate wedding celebrations through your connected Dawat account.",
   "author": {
     "name": "SASID SERVICES INC",
@@ -104,7 +104,7 @@
         "demo_recording_url": "https://dawat.events/uploads/media/plugin-reviews/dawat-1.1.1-f6658c751d11.mp4"
       },
       "publication": {
-        "release_notes": "Version 1.2.0 adds a versioned native MCP Apps invitation studio and fourteen focused tools for preview, RSVP controls, sharing kits, audience review, import inspection and celebration coordination. All writes retain existing scopes, authorization and explicit confirmation. The existing video documents the original review flows; native ChatGPT UI acceptance and the expanded walkthrough are tracked separately."
+        "release_notes": "Version 1.2.1 clarifies the authoritative invitation read before native studio presentation. The 35-tool workflow includes RSVP controls, sharing kits, audience review, import inspection and celebration coordination. Writes retain existing scopes, authorization and explicit confirmation. Native ChatGPT studio, fullscreen, guest and analytics reads were verified on a synthetic unpublished fixture; the existing video documents original review flows."
       }
     }
   }
